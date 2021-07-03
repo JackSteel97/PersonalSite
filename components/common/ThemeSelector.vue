@@ -44,7 +44,24 @@ export default Vue.extend({
             theme.active = active;
             toggleCallback();
             this.$emit('theme-changed', theme.theme);
+        },
+        getSelectedThemeFromStorage(): number{
+          let theme = localStorage.getItem("selected-theme");
+          let result = Theme.System;
+          if(theme != null){
+              result = Number(theme);
+          }
+          return result;
+        },
+        initialiseSelectedTheme(){
+            let selectedTheme = this.getSelectedThemeFromStorage();
+            this.themes.forEach(theme=>theme.active = theme.theme == selectedTheme);
         }
+    },
+    beforeMount(){
+        this.initialiseSelectedTheme();
     }
+    
+    
 })
 </script>

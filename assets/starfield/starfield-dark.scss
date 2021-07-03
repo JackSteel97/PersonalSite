@@ -1,0 +1,42 @@
+@import "starfield-common";
+
+$shadows-small: multiple-box-shadow(700, '#FFF');
+$shadows-medium: multiple-box-shadow(200, '#FFF');
+$shadows-big: multiple-box-shadow(100, '#FFF');
+
+#background{
+  background: radial-gradient(ellipse at top, #1B2735 0%, #090A0F 100%);
+}
+
+#stars {
+    box-shadow: $shadows-small;
+    &:after {
+      box-shadow: $shadows-small;
+    }
+}
+
+#stars2 {
+    box-shadow: $shadows-medium;
+    &:after {
+        box-shadow: $shadows-medium;
+    }
+}
+
+  #stars3 {
+    
+    box-shadow: $shadows-big;
+  
+    &:after {
+      box-shadow: $shadows-big;
+    }
+  }
+
+  #title {
+    color: #FFF;
+    span {
+      background-clip: text;
+      background: -webkit-linear-gradient(white, #38495a);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }

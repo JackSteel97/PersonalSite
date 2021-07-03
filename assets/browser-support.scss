@@ -1,0 +1,4 @@
+.browserupgrade { display: block; }
+
+/* all modern browsers */
+@supports (display: flex) { .browserupgrade { display: none; }}

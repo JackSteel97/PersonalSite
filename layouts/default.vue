@@ -1,79 +1,86 @@
 <template>
+<div>
+    <div class="browserupgrade">
+        <p>You are using an outdated browser. Please <a href="http://browsehappy.com/">
+        upgrade your browser</a> to improve your experience.</p>
+    </div>
     <v-app dark>
-        <v-navigation-drawer
-            v-model="drawer"
-            :mini-variant="miniVariant"
-            :clipped="clipped"
-            fixed
-            app>
-            <v-list>
-                <v-list-item
-                    v-for="(item, i) in items"
-                    :key="i"
-                    :to="item.to"
-                    router
-                    exact>
-                    <v-list-item-action>
-                        <v-icon>{{ item.icon }}</v-icon>
-                    </v-list-item-action>
+            <v-navigation-drawer
+                v-model="drawer"
+                :mini-variant="miniVariant"
+                :clipped="clipped"
+                fixed
+                app>
+                <v-list>
+                    <v-list-item
+                        v-for="(item, i) in items"
+                        :key="i"
+                        :to="item.to"
+                        router
+                        exact>
+                        <v-list-item-action>
+                            <v-icon>{{ item.icon }}</v-icon>
+                        </v-list-item-action>
 
+                        <v-list-item-content>
+                            <v-list-item-title v-text="item.title" />
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-navigation-drawer>
+
+            <v-app-bar :clipped-left="clipped" fixed app>
+                <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+
+                <v-btn icon @click.stop="miniVariant = !miniVariant">
+                    <v-icon>mdi-{{`chevron-${miniVariant ? 'right' : 'left'}`}}</v-icon>
+                </v-btn>
+
+                <v-toolbar-title v-text="title" />
+
+                <v-spacer />
+
+                <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+                    <v-icon>mdi-cog</v-icon>
+                </v-btn>
+            </v-app-bar>
+
+            <v-main>
+                <v-container fluid class="px-0 pt-0">
+                    <nuxt />
+                </v-container>
+            </v-main>
+
+            <v-navigation-drawer
+                v-model="rightDrawer"
+                :right="right"
+                temporary
+                fixed>
+                <v-list-item>
                     <v-list-item-content>
-                        <v-list-item-title v-text="item.title" />
+                        <v-list-item-title class="text-h6">
+                            <span>Settings</span>
+                            <v-icon @click="rightDrawer = false" class="float-right">mdi-close</v-icon>
+                        </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-            </v-list>
-        </v-navigation-drawer>
+                <v-divider />
+                <v-list-item>
+                    <v-list-item-content>
+                        <v-list-item-title class="text-overline pl-1">
+                            Theme
+                        </v-list-item-title>
+                        <theme-selector @theme-changed="handleSelectedThemeChange" />
+                    </v-list-item-content>
+                </v-list-item>
+            </v-navigation-drawer>
 
-        <v-app-bar :clipped-left="clipped" fixed app>
-            <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-
-            <v-btn icon @click.stop="miniVariant = !miniVariant">
-                <v-icon>mdi-{{`chevron-${miniVariant ? 'right' : 'left'}`}}</v-icon>
-            </v-btn>
-
-            <v-toolbar-title v-text="title" />
-
-            <v-spacer />
-
-            <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-                <v-icon>mdi-cog</v-icon>
-            </v-btn>
-        </v-app-bar>
-
-        <v-main>
-            <v-container>
-                <nuxt />
-            </v-container>
-        </v-main>
-
-        <v-navigation-drawer
-            v-model="rightDrawer"
-            :right="right"
-            temporary
-            fixed>
-            <v-list-item>
-                <v-list-item-content>
-                    <v-list-item-title class="text-h6">
-                        <span>Settings</span>
-                        <v-icon @click="rightDrawer = false" class="float-right">mdi-close</v-icon>
-                    </v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
-            <v-divider />
-            <v-list-item>
-                <v-list-item-content>
-                    <v-list-item-title class="text-overline pl-1">
-                        Theme
-                    </v-list-item-title>
-                    <theme-selector @theme-changed="handleSelectedThemeChange" />
-                </v-list-item-content>
-            </v-list-item>
-        </v-navigation-drawer>
-
-        <v-footer :absolute="!fixed" app>
-            <span>&copy; {{ new Date().getFullYear() }}</span>
-        </v-footer>
+            <v-footer :absolute="!fixed" app>
+                <span>&copy; {{ new Date().getFullYear() }}</span>
+            </v-footer>
     </v-app>
+</div>
+   
 </template>
 
 <script>
@@ -108,8 +115,7 @@ export default {
     },
 
     beforeMount() {
-        this.detectDarkModeAtStartup();
-        this.listenForSystemThemeChanges();
+        this.initialiseTheme();
     },
 
     methods: {
@@ -145,7 +151,11 @@ export default {
           localStorage.setItem("selected-theme", this.selectedTheme.toString())
         },
         getSelectedThemeFromStorage(){
-          return localStorage.getItem("selected-theme");
+          let theme = localStorage.getItem("selected-theme");
+          if(theme != null){
+              theme = Number(theme);
+          }
+          return theme;
         },
 
         initialiseTheme(){
@@ -163,11 +173,14 @@ export default {
               break;
             case Theme.Dark:
               this.setDarkMode(true);
+              this.stopListeneningForSystemThemeChanges();
               break;
             case Theme.Light:
               this.setDarkMode(false);
+              this.stopListeneningForSystemThemeChanges();
               break;
           }
+          this.saveSelectedTheme();
         },
 
         handleSelectedThemeChange(newTheme){
