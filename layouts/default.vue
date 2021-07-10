@@ -30,11 +30,7 @@
             </v-navigation-drawer>
 
             <v-app-bar :clipped-left="clipped" fixed app>
-                <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-
-                <v-btn icon @click.stop="miniVariant = !miniVariant">
-                    <v-icon>mdi-{{`chevron-${miniVariant ? 'right' : 'left'}`}}</v-icon>
-                </v-btn>
+                <v-app-bar-nav-icon @click.stop="miniVariant = !miniVariant" />
 
                 <v-toolbar-title v-text="title" />
 
@@ -76,7 +72,7 @@
             </v-navigation-drawer>
 
             <v-footer :absolute="!fixed" app>
-                <span>&copy; {{ new Date().getFullYear() }}</span>
+                <span>&copy; Jack Steel - {{ new Date().getFullYear() }}</span>
             </v-footer>
     </v-app>
 </div>
@@ -93,11 +89,11 @@ export default {
         return {
             clipped: true,
             drawer: true,
-            fixed: false,
+            fixed: true,
             items: [
                 {
-                    icon: 'mdi-apps',
-                    title: 'Welcome',
+                    icon: 'mdi-home',
+                    title: 'Home',
                     to: '/'
                 },
                 {
@@ -106,7 +102,7 @@ export default {
                     to: '/inspire'
                 }
             ],
-            miniVariant: false,
+            miniVariant: true,
             right: true,
             rightDrawer: false,
             title: 'Jack Steel',

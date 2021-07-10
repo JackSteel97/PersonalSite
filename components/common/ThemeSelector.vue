@@ -61,7 +61,5 @@ export default Vue.extend({
     beforeMount(){
         this.initialiseSelectedTheme();
     }
-    
-    
 })
 </script>
