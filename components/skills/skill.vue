@@ -1,0 +1,32 @@
+<template>
+<v-sheet elevation="2">
+    <v-row align="center">
+        <v-col cols="4" class="text-center">
+            {{skill.name}}
+        </v-col>
+        <v-divider class="my-2" vertical inset />
+        <v-col>
+            <v-rating
+                :color="skill.color"
+                :empty-icon="$mdiStarOutline"
+                :full-icon="$mdiStar"
+                length="5"
+                readonly
+                :value="skill.rating">
+            </v-rating>
+        </v-col>
+    </v-row>
+</v-sheet>
+</template>
+
+
+<script lang="ts">
+import Vue, {PropType} from 'vue';
+import Skill from '~/models/skills/Skill';
+
+export default Vue.extend({
+    props:{
+        skill: {type: Object as PropType<Skill>}
+    }
+});
+</script>

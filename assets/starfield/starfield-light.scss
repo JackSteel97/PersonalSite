@@ -33,10 +33,4 @@ $shadows-big: multiple-box-shadow(100, '#000');
 
   #title {
     color: #000;
-    span {
-      background-clip: text;
-      background: -webkit-linear-gradient(#CFD8DC, black);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
   }
