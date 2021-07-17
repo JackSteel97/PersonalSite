@@ -6,7 +6,7 @@
   </div>
 
   <v-container>
-    <h2 class="text-h2 mb-4">Skills</h2>
+    <h2 class="text-h2 pb-4 mb-4">Skills</h2>
     <skills />
   </v-container>
 

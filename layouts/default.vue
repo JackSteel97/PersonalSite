@@ -7,7 +7,7 @@
     <v-app dark>
             <v-navigation-drawer
                 v-model="drawer"
-                :mini-variant="miniVariant"
+                :mini-variant="!isMobile && miniVariant"
                 :clipped="clipped"
                 fixed
                 app>
@@ -30,7 +30,7 @@
             </v-navigation-drawer>
 
             <v-app-bar :clipped-left="clipped" fixed app>
-                <v-app-bar-nav-icon @click.stop="miniVariant = !miniVariant" />
+                <v-app-bar-nav-icon @click.stop="toggleLeftDrawer" />
 
                 <v-toolbar-title v-text="title" />
 
@@ -90,6 +90,7 @@ export default {
             clipped: true,
             drawer: true,
             fixed: true,
+            miniVariant: true,
             items: [
                 {
                     icon: 'mdi-home',
@@ -102,7 +103,6 @@ export default {
                     to: '/inspire'
                 }
             ],
-            miniVariant: true,
             right: true,
             rightDrawer: false,
             title: 'Jack Steel',
@@ -115,6 +115,15 @@ export default {
     },
 
     methods: {
+        toggleLeftDrawer(){
+            if(this.isMobile){
+                this.drawer = !this.drawer;
+            }else{
+                this.drawer = true;
+                this.miniVariant = !this.miniVariant;
+            }
+        },
+
         setDarkMode(on) {
             this.$vuetify.theme.dark = on;
         },
@@ -182,6 +191,21 @@ export default {
         handleSelectedThemeChange(newTheme){
           this.selectedTheme = newTheme;
           this.setTheme();
+        }
+    },
+
+    computed:{
+        isMobile(){
+            return this.$vuetify.breakpoint.mobile;
+        }
+    },
+
+    watch:{
+        isMobile(newVal, oldVal){
+            if(newVal && newVal != oldVal){
+                this.miniVariant = true;
+                this.drawer = false;
+            }
         }
     }
 };

@@ -1,7 +1,7 @@
 <template>
     <v-card class="elevation-2" :color="item.color">
         <v-card-title class="text-h6 pt-2" :style="titleColorStyle">
-            <span>{{item.title}} - <a class="font-weight-light title-link" :href="item.companyLink" target="_blank" :style="titleColorStyle">{{item.company}}</a></span>
+            <span class="break-word">{{item.title}} - <a class="font-weight-light title-link" :href="item.companyLink" target="_blank" :style="titleColorStyle">{{item.company}}</a></span>
         </v-card-title>
 
         <v-card-subtitle class="mb-0 pb-1" :style="subtitleColorStyle">
@@ -12,14 +12,21 @@
             <p class="mb-0">{{item.description}}</p>
         </v-card-subtitle>
 
-        <v-card-text v-if="readMore" :class="$vuetify.theme.dark ? 'dark-card-text' : 'light-card-text'">
-            <template>
-                <p class="text-subtitle-2 mb-0">Achievements and Responsibilities</p>
-                <ul>
-                    <li v-for="(responsibility, i) in item.responsibilities" :key="i">{{responsibility}}</li>
-                </ul>
-            </template>
-        </v-card-text>
+       
+            <v-card-text class="experience-text" :class="cardTextClass">
+                <v-slide-x-transition>
+                    <template v-if="readMore">
+                        <p class="text-subtitle-2 mb-0">Achievements and Responsibilities</p>
+                    </template>
+                </v-slide-x-transition>
+                <v-slide-x-transition>
+                    <template v-if="readMore">
+                        <ul>
+                            <li v-for="(responsibility, i) in item.responsibilities" :key="i">{{responsibility}}</li>
+                        </ul>
+                    </template>
+                </v-slide-x-transition>
+            </v-card-text>
 
         <v-card-actions class="pt-0">
             <v-btn text @click="readMore = !readMore" :style="subtitleColorStyle">
@@ -51,6 +58,12 @@ export default Vue.extend({
     },
 
     computed: {
+        cardTextClass(){
+            if(!this.readMore){
+                return "no-height pa-0";
+            }
+            return this.$vuetify.theme.dark ? 'dark-card-text' : 'light-card-text';
+        },
         duration(): string {
             let momentDuration = moment.duration(this.endMoment.diff(this.startMoment));
             let years = momentDuration.years();
@@ -100,11 +113,13 @@ export default Vue.extend({
 .dark-card-text{
     color: #FFFFFF;
     background-color: #1E1E1E;
+    max-height: 500px;
 }
 
 .light-card-text{
     color: rgba(0, 0, 0, 0.95) !important;
     background-color: #FFFFFF;
+    max-height: 500px;
 }
 
 .title-link{
@@ -113,5 +128,18 @@ export default Vue.extend({
     &:hover{
         font-weight: bold !important;
     }
+}
+
+.no-height{
+    max-height: 0;
+}
+
+.experience-text{
+    transition-property: all;
+    transition-duration: 0.4s;
+}
+
+.break-word{
+    word-break: break-word;
 }
 </style>

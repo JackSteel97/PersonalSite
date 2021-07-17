@@ -4,7 +4,9 @@
             <template v-slot:opposite>
                 <span class="headline font-weight-light">{{item.oppositeText}}</span>
             </template>
+            
             <experience-item :item="item" />
+
         </v-timeline-item>
     </v-timeline>
 </template>

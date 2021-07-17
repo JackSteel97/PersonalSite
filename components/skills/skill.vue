@@ -1,7 +1,7 @@
 <template>
 <v-sheet elevation="2">
-    <v-row align="center">
-        <v-col cols="4" class="text-center">
+    <v-row align="center pl-1">
+        <v-col cols="5" class="text-center">
             {{skill.name}}
         </v-col>
         <v-divider class="my-2" vertical inset />
@@ -12,7 +12,8 @@
                 :full-icon="$mdiStar"
                 length="5"
                 readonly
-                :value="skill.rating">
+                :value="skill.rating"
+                background-color="grey darken-1">
             </v-rating>
         </v-col>
     </v-row>
