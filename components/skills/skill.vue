@@ -1,6 +1,6 @@
 <template>
 <v-sheet elevation="2">
-    <v-row align="center pl-1">
+    <v-row align="center" class="pl-1">
         <v-col cols="5" class="text-center">
             {{skill.name}}
         </v-col>
@@ -8,8 +8,6 @@
         <v-col>
             <v-rating
                 :color="skill.color"
-                :empty-icon="$mdiStarOutline"
-                :full-icon="$mdiStar"
                 length="5"
                 readonly
                 :value="skill.rating"
