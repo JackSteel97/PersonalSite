@@ -1,7 +1,7 @@
 <template>
     <v-card class="elevation-2" :color="item.color">
         <v-card-title class="text-h6 pt-2" :style="titleColorStyle">
-            <span class="break-word">{{item.title}} - <a class="font-weight-light title-link" :href="item.companyLink" target="_blank" :style="titleColorStyle">{{item.company}}</a></span>
+            <span class="break-word">{{item.title}} - <a class="font-weight-light title-link" rel="noreferrer" :href="item.companyLink" target="_blank" :style="titleColorStyle">{{item.company}}</a></span>
         </v-card-title>
 
         <v-card-subtitle class="mb-0 pb-1" :style="subtitleColorStyle">

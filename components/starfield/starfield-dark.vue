@@ -3,21 +3,28 @@
         <div id="title">
             <span>{{title}}</span>
             <br/>
-            <span class="text-h4">{{subtitle}}</span>
-            </div>
+            <span class="text-h4">
+                <vue-typed-js class="d-block" :strings="subtitle" :smartBackspace="true" :showCursor="false">
+                    <span class="typing"></span>
+                </vue-typed-js>
+            </span>
+        </div>
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
     </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
+import VueTypedJs from 'vue-typed-js';
+
+Vue.use(VueTypedJs);
 
 export default Vue.extend({
     props:{
         title: {type: String},
-        subtitle: {type: String}
+        subtitle: {type: Array}
     }
 });
 

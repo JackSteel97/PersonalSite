@@ -1,5 +1,5 @@
 <template>
-    <v-card class="ext-link pt-2" tile elevation="2" :href="destination" target="_blank">
+    <v-card v-ripple class="ext-link pt-2" tile elevation="2" :href="destination" rel="noreferrer" target="_blank">
         <v-icon v-if="!image" :aria-label="title" :color="iconColor" class="ext-link-icon">{{icon}}</v-icon>
         <v-img v-if="image" :aria-label="title" height="48" contain :src="imageSrc" />
         <v-card-subtitle class="ext-link-username pt-1">{{username}}</v-card-subtitle>

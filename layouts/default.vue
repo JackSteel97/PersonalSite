@@ -17,6 +17,7 @@
                         :key="i"
                         :to="item.to"
                         router
+                        ripple
                         exact>
                         <v-list-item-action>
                             <v-icon>{{ item.icon }}</v-icon>
@@ -30,13 +31,13 @@
             </v-navigation-drawer>
 
             <v-app-bar :clipped-left="clipped" fixed app>
-                <v-app-bar-nav-icon @click.stop="toggleLeftDrawer" />
+                <v-app-bar-nav-icon aria-label="menu button" @click.stop="toggleLeftDrawer" />
 
                 <v-toolbar-title v-text="title" />
 
                 <v-spacer />
 
-                <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+                <v-btn icon @click.stop="rightDrawer = !rightDrawer" aria-label="settings button">
                     <v-icon>mdi-cog</v-icon>
                 </v-btn>
             </v-app-bar>
@@ -73,6 +74,8 @@
 
             <v-footer :absolute="!fixed" app>
                 <span>&copy; Jack Steel - {{ new Date().getFullYear() }}</span>
+                <v-spacer />
+                <span><v-icon left>mdi-email</v-icon><a href="mailto:website@jacksteel.co.uk">Get in touch</a></span>
             </v-footer>
     </v-app>
 </div>
@@ -98,9 +101,24 @@ export default {
                     to: '/'
                 },
                 {
-                    icon: 'mdi-chart-bubble',
-                    title: 'Inspire',
-                    to: '/inspire'
+                    icon: 'mdi-star-outline',
+                    title: 'Skills',
+                    to: '#skills'
+                },
+                {
+                    icon: 'mdi-calendar-range-outline',
+                    title: 'Experience',
+                    to: '#experience'
+                },
+                {
+                    icon: 'mdi-open-in-new',
+                    title: 'Elsewhere on the Web',
+                    to: '#elsewhere'
+                },
+                {
+                    icon: 'mdi-book-open-blank-variant',
+                    title: 'Public Projects',
+                    to: '#projects'
                 }
             ],
             right: true,
