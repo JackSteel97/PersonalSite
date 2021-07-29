@@ -16,6 +16,24 @@
   </v-container>
 
   <v-container>
+    <h2 class="text-h2">Elsewhere on the Web</h2>
+    <v-row>
+      <v-col  cols="12" sm="12" md="6" lg="4" xl="3">
+        <ext-link class="text-center" title="Github" destination="https://github.com/JackSteel97" username="JackSteel97" icon="mdi-github" />
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+        <ext-link class="text-center" title="LinkedIn" destination="https://www.linkedin.com/in/jacksteel/" username="JackSteel" icon="mdi-linkedin" />
+      </v-col>
+      <v-col  cols="12" sm="12" md="6" lg="4" xl="3">
+        <ext-link class="text-center" title="Instagram" destination="https://www.instagram.com/jacksteelphotography/" username="@JackSteelPhotography" icon="mdi-instagram" />
+      </v-col>
+      <v-col  cols="12" sm="12" md="6" lg="4" xl="3">
+        <ext-link class="text-center" title="HackerRank" destination="https://www.hackerrank.com/jacksteel" username="@JackSteel" image imageSrc="/imgs/hackerrank_logo.svg" />
+      </v-col>
+    </v-row>
+  </v-container>
+
+  <v-container>
     <h2 class="text-h2 mb-4">Public Projects</h2>
     <v-row>
       <v-col cols="12" offset-xl="1" xl="10">
@@ -61,11 +79,12 @@
 <script>
 import Vue from 'vue';
 import Experience from '~/components/experience/experience.vue';
+import ExtLink from '~/components/ExtLinks/link.vue';
 import ProjectCard from '~/components/projects/project-card.vue';
 import Skills from '~/components/skills/skills.vue';
 
 export default Vue.extend({
-  components: { Experience, Skills, ProjectCard},
+  components: { Experience, Skills, ProjectCard, ExtLink},
   computed:{
     ProjectCardisDarkMode(){
       return this.$vuetify.theme.dark;
