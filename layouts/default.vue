@@ -15,7 +15,7 @@
                     <v-list-item
                         v-for="(item, i) in items"
                         :key="i"
-                        :to="item.to"
+                        :to="{path: item.to, hash: item.hash}"
                         router
                         ripple
                         exact>
@@ -91,34 +91,39 @@ export default {
     data() {
         return {
             clipped: true,
-            drawer: true,
+            drawer: false,
             fixed: true,
             miniVariant: true,
             items: [
                 {
                     icon: 'mdi-home',
                     title: 'Home',
-                    to: '/'
+                    to: '/',
+                    hash: null
                 },
                 {
                     icon: 'mdi-star-outline',
                     title: 'Skills',
-                    to: '#skills'
+                    to: '/',
+                    hash: '#skills'
                 },
                 {
                     icon: 'mdi-calendar-range-outline',
                     title: 'Experience',
-                    to: '#experience'
+                    to: '/',
+                    hash: '#experience'
                 },
                 {
                     icon: 'mdi-open-in-new',
                     title: 'Elsewhere on the Web',
-                    to: '#elsewhere'
+                    to: '/',
+                    hash: '#elsewhere'
                 },
                 {
                     icon: 'mdi-book-open-blank-variant',
                     title: 'Public Projects',
-                    to: '#projects'
+                    to: '/',
+                    hash: '#projects'
                 }
             ],
             right: true,
@@ -223,6 +228,9 @@ export default {
             if(newVal && newVal != oldVal){
                 this.miniVariant = true;
                 this.drawer = false;
+            }else if(!newVal && newVal != oldVal){
+                this.miniVariant = true;
+                this.drawer = true;
             }
         }
     }

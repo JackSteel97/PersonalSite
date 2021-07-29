@@ -39,4 +39,15 @@ $shadows-big: multiple-box-shadow(100, '#FFF');
       -webkit-background-clip: text;
       color: transparent;
     }
+
+    @media not all and (min-resolution:.001dpcm)
+      { @supports (-webkit-appearance:none) {
+
+        span { 
+            color:#FFFFFF;
+            background-clip: unset;
+            background: unset;
+            -webkit-background-clip: unset;
+          }
+      }}
   }
