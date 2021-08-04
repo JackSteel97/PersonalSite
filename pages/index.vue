@@ -7,7 +7,7 @@
 
   <v-container>
     <h2 id="skills" class="text-h2 pb-4 mb-4">Skills</h2>
-    <skills />
+    <skills class="px-3"/>
   </v-container>
 
   <v-container>
@@ -15,26 +15,9 @@
     <experience />
   </v-container>
 
-  <v-container>
-    <h2 id="elsewhere" class="text-h2">Elsewhere on the Web</h2>
-    <v-row>
-      <v-col  cols="12" sm="12" md="6" lg="4" xl="3">
-        <ext-link class="text-center" title="Github" destination="https://github.com/JackSteel97" username="JackSteel97" icon="mdi-github" />
-      </v-col>
-      <v-col cols="12" sm="12" md="6" lg="4" xl="3">
-        <ext-link class="text-center" title="LinkedIn" destination="https://www.linkedin.com/in/jacksteel/" username="JackSteel" icon="mdi-linkedin" />
-      </v-col>
-      <v-col  cols="12" sm="12" md="6" lg="4" xl="3">
-        <ext-link class="text-center" title="Instagram" destination="https://www.instagram.com/jacksteelphotography/" username="@JackSteelPhotography" icon="mdi-instagram" />
-      </v-col>
-      <v-col  cols="12" sm="12" md="6" lg="4" xl="3">
-        <ext-link class="text-center" title="HackerRank" destination="https://www.hackerrank.com/jacksteel" username="@JackSteel" image imageSrc="/imgs/hackerrank_logo.svg" />
-      </v-col>
-    </v-row>
-  </v-container>
 
   <v-container>
-    <h2 id="projects" class="text-h2 mb-4">Public Projects</h2>
+    <h2 id="projects" class="text-h2 my-4">Public Projects</h2>
     <v-row>
       <v-col cols="12" offset-xl="1" xl="10">
         <v-carousel class="elevation-2" height="100%" cycle hide-delimiters>
@@ -73,6 +56,26 @@
       </v-col>
     </v-row>
   </v-container>
+
+  <v-divider class="mx-8 my-10"/>
+
+  <v-container>
+    <h2 id="elsewhere" class="text-h2 mb-4">Elsewhere on the Web</h2>
+    <v-row>
+      <v-col  cols="12" sm="12" md="6" lg="4" xl="3">
+        <ext-link class="text-center" title="Github" destination="https://github.com/JackSteel97" username="JackSteel97" icon="mdi-github" />
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+        <ext-link class="text-center" title="LinkedIn" destination="https://www.linkedin.com/in/jacksteel/" username="JackSteel" icon="mdi-linkedin" />
+      </v-col>
+      <v-col  cols="12" sm="12" md="6" lg="4" xl="3">
+        <ext-link class="text-center" title="Instagram" destination="https://www.instagram.com/jacksteelphotography/" username="@JackSteelPhotography" icon="mdi-instagram" />
+      </v-col>
+      <v-col  cols="12" sm="12" md="6" lg="4" xl="3">
+        <ext-link class="text-center" title="HackerRank" destination="https://www.hackerrank.com/jacksteel" username="@JackSteel" image imageSrc="/imgs/hackerrank_logo.svg" />
+      </v-col>
+    </v-row>
+  </v-container>
 </div>
 </template>
 
@@ -99,7 +102,3 @@ export default Vue.extend({
   }
 });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

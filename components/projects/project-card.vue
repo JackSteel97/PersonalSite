@@ -23,7 +23,7 @@
                 </v-row>
             </v-card-text>
             <v-card-actions>
-                <v-btn width="100%" :href="link" target="_blank">Learn More</v-btn>
+                <v-btn width="100%" :href="link" target="_blank" rel="noreferrer">Learn More</v-btn>
             </v-card-actions>
         </v-card>
     </v-carousel-item>

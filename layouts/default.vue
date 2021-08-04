@@ -75,7 +75,7 @@
             <v-footer :absolute="!fixed" app>
                 <span>&copy; Jack Steel - {{ new Date().getFullYear() }}</span>
                 <v-spacer />
-                <span><v-icon left>mdi-email</v-icon><a href="mailto:website@jacksteel.co.uk">Get in touch</a></span>
+                <span ><v-icon left>mdi-email</v-icon><a :class="isDarkMode ? 'definitely-white' : 'definitely-not-white'" href="mailto:website@jacksteel.co.uk">Get in touch</a></span>
             </v-footer>
     </v-app>
 </div>
@@ -114,16 +114,16 @@ export default {
                     hash: '#experience'
                 },
                 {
-                    icon: 'mdi-open-in-new',
-                    title: 'Elsewhere on the Web',
-                    to: '/',
-                    hash: '#elsewhere'
-                },
-                {
                     icon: 'mdi-book-open-blank-variant',
                     title: 'Public Projects',
                     to: '/',
                     hash: '#projects'
+                },
+                {
+                    icon: 'mdi-open-in-new',
+                    title: 'Elsewhere on the Web',
+                    to: '/',
+                    hash: '#elsewhere'
                 }
             ],
             right: true,
@@ -220,6 +220,9 @@ export default {
     computed:{
         isMobile(){
             return this.$vuetify.breakpoint.mobile;
+        },
+        isDarkMode(){
+            return this.$vuetify.theme.dark;
         }
     },
 
