@@ -31,14 +31,16 @@
             </v-navigation-drawer>
 
             <v-app-bar :clipped-left="clipped" fixed app>
-                <v-app-bar-nav-icon aria-label="menu button" @click.stop="toggleLeftDrawer" />
+                <v-btn icon @click.stop="toggleLeftDrawer" aria-label="menu button">
+                    <v-icon>{{icons.menu}}</v-icon>
+                </v-btn>
 
                 <v-toolbar-title v-text="title" />
 
                 <v-spacer />
 
                 <v-btn icon @click.stop="rightDrawer = !rightDrawer" aria-label="settings button">
-                    <v-icon>mdi-cog</v-icon>
+                    <v-icon>{{icons.cog}}</v-icon>
                 </v-btn>
             </v-app-bar>
 
@@ -57,7 +59,7 @@
                     <v-list-item-content>
                         <v-list-item-title class="text-h6">
                             <span>Settings</span>
-                            <v-icon @click="rightDrawer = false" class="float-right">mdi-close</v-icon>
+                            <v-icon @click="rightDrawer = false" class="float-right">{{icons.close}}</v-icon>
                         </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
@@ -75,7 +77,7 @@
             <v-footer :absolute="!fixed" app>
                 <span>&copy; Jack Steel - {{ new Date().getFullYear() }}</span>
                 <v-spacer />
-                <span ><v-icon left>mdi-email</v-icon><a :class="isDarkMode ? 'definitely-white' : 'definitely-not-white'" href="mailto:website@jacksteel.co.uk">Get in touch</a></span>
+                <span ><v-icon left>{{icons.email}}</v-icon><a :class="isDarkMode ? 'definitely-white' : 'definitely-not-white'" href="mailto:website@jacksteel.co.uk">Get in touch</a></span>
             </v-footer>
     </v-app>
 </div>
@@ -85,42 +87,49 @@
 <script>
 import ThemeSelector from '~/components/common/ThemeSelector.vue';
 import {Theme} from '~/models/common/DisplayTheme';
+import {mdiEmail, mdiHome, mdiStarOutline, mdiCalendarRangeOutline, mdiBookOpenBlankVariant, mdiOpenInNew, mdiClose, mdiCog, mdiMenu} from '@mdi/js';
 
 export default {
   components: { ThemeSelector },
     data() {
         return {
+            icons:{
+                email: mdiEmail,
+                close: mdiClose,
+                cog: mdiCog,
+                menu: mdiMenu,
+            },
             clipped: true,
             drawer: false,
             fixed: true,
             miniVariant: true,
             items: [
                 {
-                    icon: 'mdi-home',
+                    icon: mdiHome,
                     title: 'Home',
                     to: '/',
                     hash: null
                 },
                 {
-                    icon: 'mdi-star-outline',
+                    icon: mdiStarOutline,
                     title: 'Skills',
                     to: '/',
                     hash: '#skills'
                 },
                 {
-                    icon: 'mdi-calendar-range-outline',
+                    icon: mdiCalendarRangeOutline,
                     title: 'Experience',
                     to: '/',
                     hash: '#experience'
                 },
                 {
-                    icon: 'mdi-book-open-blank-variant',
+                    icon: mdiBookOpenBlankVariant,
                     title: 'Public Projects',
                     to: '/',
                     hash: '#projects'
                 },
                 {
-                    icon: 'mdi-open-in-new',
+                    icon: mdiOpenInNew,
                     title: 'Elsewhere on the Web',
                     to: '/',
                     hash: '#elsewhere'

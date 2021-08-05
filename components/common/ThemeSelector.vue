@@ -27,14 +27,15 @@
 <script lang="ts">
 import Vue from 'vue'
 import {DisplayTheme, Theme} from '~/models/common/DisplayTheme'
+import {mdiDesktopTowerMonitor, mdiWeatherNight, mdiWhiteBalanceSunny} from '@mdi/js';
 
 export default Vue.extend({
     data: () => {
         return {
             themes: [
-                new DisplayTheme(Theme.System, "mdi-desktop-tower-monitor", true),
-                new DisplayTheme(Theme.Dark, "mdi-weather-night"),
-                new DisplayTheme(Theme.Light, "mdi-white-balance-sunny")
+                new DisplayTheme(Theme.System, mdiDesktopTowerMonitor, true),
+                new DisplayTheme(Theme.Dark, mdiWeatherNight),
+                new DisplayTheme(Theme.Light, mdiWhiteBalanceSunny)
             ]
         }
     },

@@ -1,6 +1,6 @@
 <template>
     <v-card v-ripple class="ext-link pt-2" tile elevation="2" :href="destination" rel="noreferrer" target="_blank">
-        <v-icon v-if="!image" :aria-label="title" :color="iconColor" class="ext-link-icon">{{icon}}</v-icon>
+        <v-icon v-if="!image" :aria-label="title" :color="iconColor" size="48">{{icon}}</v-icon>
         <v-img v-if="image" :aria-label="title" height="48" contain :src="imageSrc" />
         <v-card-subtitle class="ext-link-username pt-1">{{username}}</v-card-subtitle>
     </v-card>
@@ -23,9 +23,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-    .ext-link-icon{
-        font-size: 48px !important;
-    }
     .ext-link-username{
         text-decoration: underline;
     }
