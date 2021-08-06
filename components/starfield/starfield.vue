@@ -1,6 +1,6 @@
 <template>
-    <div id="background">
-        <div id="title">
+    <div id="background" :class="theme">
+        <div id="title" :class="theme">
             <span>{{title}}</span>
             <br/>
             <span class="text-h4">
@@ -9,9 +9,9 @@
                 </vue-typed-js>
             </span>
         </div>
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
+        <div id="stars" :class="theme"></div>
+        <div id="stars2" :class="theme"></div>
+        <div id="stars3" :class="theme"></div>
     </div>
 </template>
 
@@ -24,12 +24,21 @@ Vue.use(VueTypedJs);
 export default Vue.extend({
     props:{
         title: {type: String},
-        subtitle: {type: Array}
+        subtitle: {type: Array},
+        dark: {type: Boolean}
+    },
+    computed:{
+        theme(){
+            if(this.dark){
+                return 'theme-dark';
+            } else {
+                return 'theme-light';
+            }
+        }
     }
 });
-
 </script>
 
 <style scoped lang="scss">
-    @import "@/assets/starfield/starfield-dark";
+    @import "@/assets/starfield/starfield";
 </style>

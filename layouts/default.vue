@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import ThemeSelector from '~/components/common/ThemeSelector.vue';
 import {Theme} from '~/models/common/DisplayTheme';
 import {mdiEmail, mdiHome, mdiStarOutline, mdiCalendarRangeOutline, mdiBookOpenBlankVariant, mdiOpenInNew, mdiClose, mdiCog, mdiMenu} from '@mdi/js';
@@ -157,7 +158,9 @@ export default {
         },
 
         setDarkMode(on) {
-            this.$vuetify.theme.dark = on;
+            this.$nextTick(()=>{
+                this.$vuetify.theme.dark = on;
+            });
         },
 
         listenForSystemThemeChanges() {

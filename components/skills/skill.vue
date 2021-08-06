@@ -1,11 +1,11 @@
 <template>
 <v-sheet elevation="2">
     <v-row align="center" class="pl-1">
-        <v-col cols="5" class="text-center">
+        <v-col cols="12" sm="5" class="text-center">
             {{skill.name}}
         </v-col>
-        <v-divider class="my-2" vertical inset />
-        <v-col>
+        <v-divider class="my-2" v-if="!$vuetify.breakpoint.xs" vertical inset />
+        <v-col cols="12" sm="7" class="text-center" :class="$vuetify.breakpoint.xs ? 'pt-0' : false">
             <v-tooltip top>
                 <template v-slot:activator="{on, attrs}">
                     <div v-bind="attrs"
@@ -22,11 +22,9 @@
                                 background-color="grey darken-1">
                             </v-rating>
                     </div>
-                    
                 </template>
                 <span>{{tooltipText}}</span>
             </v-tooltip>
-           
         </v-col>
     </v-row>
 </v-sheet>

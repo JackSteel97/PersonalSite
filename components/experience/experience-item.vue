@@ -38,8 +38,11 @@
 
 <script lang="ts">
 import Vue, {PropType} from 'vue';
-import * as moment from 'moment';
+import dayjs from 'dayjs';
 import ExperienceItem from '~/models/experience/ExperienceItem';
+import duration from 'dayjs/plugin/duration';
+
+dayjs.extend(duration);
 
 export default Vue.extend({
     props:{
@@ -65,7 +68,7 @@ export default Vue.extend({
             return this.$vuetify.theme.dark ? 'dark-card-text' : 'light-card-text';
         },
         duration(): string {
-            let momentDuration = moment.duration(this.endMoment.diff(this.startMoment));
+            let momentDuration = dayjs.duration(this.endMoment.diff(this.startMoment));
             let years = momentDuration.years();
             let months = momentDuration.months();
             let result = "";
@@ -83,11 +86,11 @@ export default Vue.extend({
             }
             return result;
         },
-        startMoment(): moment.Moment {
-            return moment.utc(this.item.startDate);
+        startMoment(): dayjs.Dayjs {
+            return  dayjs(this.item.startDate);
         },
-        endMoment(): moment.Moment {
-            return moment.utc(this.item.endDate);
+        endMoment(): dayjs.Dayjs {
+            return dayjs(this.item.endDate);
         },
         startDisplay():string {
             return this.startMoment.format('MMM YYYY');

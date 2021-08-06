@@ -12,7 +12,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, minimal-ui' },
       { hid: 'description', name: 'description', content: 'Jack Steel is an experienced London-based Full Stack Software Engineer with a demonstrated history of working in the Finance and Higher Education industries. Skilled in C#, Entity Framework, .NET Core, MVC ASP.NET, JavaScript, Typescript, and Vue.Js. Graduated with First Class honours degree in Computer Science from the University of Lincoln.' },
       { name: 'format-detection', content: 'telephone=no' },
       { name: "og:url", content: "https://www.jacksteel.co.uk" },
@@ -90,6 +90,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    analyze: false
   },
 
   googleAnalytics:{

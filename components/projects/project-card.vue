@@ -9,6 +9,7 @@
                         justify="center">
                         <v-progress-circular
                             indeterminate
+                            aria-label="loading image"
                             color="grey lighten-5" />
                     </v-row>
                 </template>
@@ -23,7 +24,7 @@
                 </v-row>
             </v-card-text>
             <v-card-actions>
-                <v-btn width="100%" :href="link" target="_blank" rel="noreferrer">Learn More</v-btn>
+                <v-btn width="100%" :href="link" target="_blank" rel="noreferrer">{{linkText}}</v-btn>
             </v-card-actions>
         </v-card>
     </v-carousel-item>
@@ -38,7 +39,8 @@ export default Vue.extend({
         lazySrc: {type: String},
         link: {type: String},
         duration: {type: String},
-        description: {type: String}
+        description: {type: String},
+        linkText: {type: String, default: 'Learn More'}
     },
 
     data: ()=>{

@@ -1,8 +1,7 @@
 <template>
 <div>
   <div>
-    <starfield-light class="elevation-2" title="JACK STEEL" :subtitle="subtitles" v-show="!$vuetify.theme.dark" />
-    <starfield-dark class="elevation-2" title="JACK STEEL" :subtitle="subtitles" v-show="$vuetify.theme.dark" />
+    <starfield class="elevation-2" title="JACK STEEL" :subtitle="subtitles" :dark="$vuetify.theme.dark" />
   </div>
 
   <v-container>
@@ -27,6 +26,7 @@
             link="https://www.sinara.com/solutions/trading-operational-systems/trade-lifecycle/" 
             duration="July 2020 - Present"
             description="End-to-End integrated Software Framework for the Derivatives Trading Lifecycle"
+            linkText="See details"
           />
 
           <project-card title="Navigate-Me"
@@ -35,6 +35,7 @@
             link="https://navigateme.lincoln.ac.uk" 
             duration="January 2017 - June 2020"
             description="University of Lincoln Campus Navigation System"
+            linkText="See in action"
           />
 
           <project-card title="Find-A-PC"
@@ -43,6 +44,7 @@
             link="https://findapc.lincoln.ac.uk" 
             duration="January 2018 - June 2020"
             description="University of Lincoln PC Availability Checker"
+            linkText="See in action"
           />
 
           <project-card title="Linking You (Lncn)"
@@ -51,6 +53,7 @@
             link="https://lncn.ac" 
             duration="September 2018 - June 2020"
             description="University of Lincoln PC Link Shortening Service"
+            linkText="See in action"
           />
         </v-carousel>
       </v-col>
@@ -86,9 +89,10 @@ import ExtLink from '~/components/ExtLinks/ext-link.vue';
 import ProjectCard from '~/components/projects/project-card.vue';
 import Skills from '~/components/skills/skills.vue';
 import {mdiGithub, mdiLinkedin, mdiInstagram} from '@mdi/js';
+import Starfield from '~/components/starfield/starfield.vue';
 
 export default Vue.extend({
-  components: { Experience, Skills, ProjectCard, ExtLink},
+  components: { Experience, Skills, ProjectCard, ExtLink, Starfield},
 
   data(){
     return {
