@@ -32,6 +32,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 export default Vue.extend({
     props:{
         title: {type: String},
@@ -40,13 +41,7 @@ export default Vue.extend({
         link: {type: String},
         duration: {type: String},
         description: {type: String},
-        linkText: {type: String, default: 'Learn More'}
-    },
-
-    data: ()=>{
-        return {
-
-        }
+        linkText: {type: String, default: 'Learn More'},
     }
 })
 </script>

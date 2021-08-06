@@ -19,7 +19,7 @@
     <h2 id="projects" class="text-h2 my-4">Public Projects</h2>
     <v-row>
       <v-col cols="12" offset-xl="1" xl="10">
-        <v-carousel class="elevation-2" height="100%" cycle hide-delimiters>
+        <v-carousel class="elevation-2" height="100%" cycle hide-delimiters :next-icon="icons.right" :prev-icon="icons.left">
           <project-card title="Sinara TLC"
             imageSrc="/imgs/projects/sinaraTlc.png"
             lazySrc="/imgs/projects/sinaraTlc-lazy.png"
@@ -88,7 +88,7 @@ import Experience from '~/components/experience/experience.vue';
 import ExtLink from '~/components/ExtLinks/ext-link.vue';
 import ProjectCard from '~/components/projects/project-card.vue';
 import Skills from '~/components/skills/skills.vue';
-import {mdiGithub, mdiLinkedin, mdiInstagram} from '@mdi/js';
+import {mdiGithub, mdiLinkedin, mdiInstagram, mdiChevronLeft, mdiChevronRight} from '@mdi/js';
 import Starfield from '~/components/starfield/starfield.vue';
 
 export default Vue.extend({
@@ -100,7 +100,9 @@ export default Vue.extend({
       icons:{
         github: mdiGithub,
         linkedIn: mdiLinkedin,
-        instagram: mdiInstagram
+        instagram: mdiInstagram,
+        left: mdiChevronLeft,
+        right: mdiChevronRight
       }
     }
   },
