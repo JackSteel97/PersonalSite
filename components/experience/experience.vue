@@ -21,7 +21,7 @@ export default Vue.extend({
     data: () =>{
         return {
             experienceItems: [
-                new ExperienceItem('#c70d0e', "Graduate Software Engineer", "#FFFFFF", "Sinara Consultants", "https://www.sinara.com/",
+                new ExperienceItem('#c70d0e', "Software Engineer", "#FFFFFF", "Sinara Consultants", "https://www.sinara.com/",
                                 "Full-time", new Date(2020, 6, 6), true, new Date(), ["Effective home working during pandemic", "Effective hybrid working", "Agile Scrum development of internal and external client large-scale systems", "Programming with C#, SignalR, Typescript, VueJS", "Deployment to AWS with kubernetes", "CI/CD with Jenkins"]),
 
                 new ExperienceItem('#072249', "Information Services Developer", "#FFFFFF", "University of Lincoln", "https://www.lincoln.ac.uk/",
