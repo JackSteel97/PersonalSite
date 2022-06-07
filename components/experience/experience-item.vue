@@ -79,11 +79,11 @@ export default Vue.extend({
                 if(result.length>0){
                     result += " ";
                 }
-                if(!this.item.toPresent){
-                    months +=1;
-                }
-                result += `${months} month${months>1 ? 's' : ''}`;
+                
+            }else{
+                months = 1;
             }
+            result += `${months} month${months>1 ? 's' : ''}`;
             return result;
         },
         startMoment(): dayjs.Dayjs {
