@@ -2,7 +2,7 @@
 <div>
     <v-row>
         <v-slide-y-transition group class="row">
-        <v-col cols="12" sm="12" md="6" lg="4" xl="3" class="mt-1" v-for="skill in skillsToDisplay" :key="skill.name">
+        <v-col cols="12" sm="6" md="4" lg="2" class="mt-1" v-for="skill in skillsToDisplay" :key="skill.name">
                 <skill :skill="skill" />
         </v-col>
         </v-slide-y-transition>
@@ -26,20 +26,21 @@ export default Vue.extend({
     data: () =>{
         return {
             skillItems: [
-                new Skill("C#", "#A37BDD", 5),
-                new Skill("Vue.js", "#41B883", 5),
-                new Skill("Visual Studio", "#8955C5", 5),
-                new Skill("Problem Solving", "#42daf5", 5),
-                new Skill(".NET", "#5E22E3", 4),
-                new Skill("Unit Testing", "#00580C", 4),
-                new Skill("HTML", "#E54C21", 4),
-                new Skill("CSS", "#254BDD", 4),
-                new Skill("Typescript", "#3178C6", 4),
-                new Skill("EF Core", "#40CCF4", 4),
-                new Skill("SQL Server", "#006EC0", 3),
-                new Skill("Git", "#F26248", 3),
-                new Skill("SVN", "#819DCA", 3),
-                new Skill("Azure", "#008AD7", 2),
+                new Skill("C#", "#A37BDD"),
+                new Skill("React", "#61DAFB"),
+                new Skill("Azure", "#008AD7"),
+                new Skill("Vue.js", "#41B883"),
+                new Skill("Visual Studio", "#8955C5"),
+                new Skill("Problem Solving", "#42daf5"),
+                new Skill(".NET", "#5E22E3"),
+                new Skill("Unit Testing", "#00580C"),
+                new Skill("HTML", "#E54C21"),
+                new Skill("CSS", "#254BDD"),
+                new Skill("Typescript", "#3178C6"),
+                new Skill("EF Core", "#40CCF4"),
+                new Skill("SQL Server", "#006EC0"),
+                new Skill("Git", "#F26248"),
+                new Skill("SVN", "#819DCA"),
             ],
             showMore: false
         }
@@ -50,7 +51,7 @@ export default Vue.extend({
                 return this.skillItems.length;
             }
             if(this.$vuetify.breakpoint.xl){
-                return Math.floor(this.skillItems.length / 8) * 8;
+                return Math.floor(this.skillItems.length / 12) * 12;
             }else if(this.$vuetify.breakpoint.lg){
                  return Math.floor(this.skillItems.length / 6) * 6;
             }else if (this.$vuetify.breakpoint.md){

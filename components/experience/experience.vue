@@ -21,7 +21,7 @@ export default Vue.extend({
     data: () =>{
         return {
             experienceItems: [
-                new ExperienceItem('#002F6C', "Fullstack Software Engineer", "#FFFFFF", "Insurwave", "https://insurwave.com/",
+                new ExperienceItem('#002F6C', "Full Stack Software Engineer", "#FFFFFF", "Insurwave", "https://insurwave.com/",
                                 "Full-time", new Date(2022, 5, 6), true, new Date(), ["Remote Role", "Agile Scrum Development of modern Microservice-based SaaS systems", "Programming with C#, Typescript, React", "CI/CD with Azure DevOps and deployment with Kubernetes"]),
 
                 new ExperienceItem('#c70d0e', "Software Engineer", "#FFFFFF", "Sinara Consultants", "https://www.sinara.com/",

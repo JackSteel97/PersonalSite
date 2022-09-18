@@ -1,11 +1,9 @@
 export default class Skill{
     public name:string;
     public color: string;
-    public rating: number;
 
-    constructor(name: string, color: string, rating: number){
+    constructor(name: string, color: string){
         this.name = name;
         this.color = color;
-        this.rating = rating;
     }
 }
