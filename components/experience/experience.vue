@@ -21,8 +21,11 @@ export default Vue.extend({
     data: () =>{
         return {
             experienceItems: [
+                new ExperienceItem('#002F6C', "Senior Full Stack Software Engineer", "#FFFFFF", "Insurwave", "https://insurwave.com/",
+                                "Full-time", new Date(2023, 0, 1), true, new Date(), ["Remote Role", "Working on the Core Services Team", "Design and development of modern distributed cloud-based microservice architecture SaaS system", "Programming with C#, Typescript, React", "CI/CD with Azure DevOps and deployment with Kubernetes and Docker"]),
+
                 new ExperienceItem('#002F6C', "Full Stack Software Engineer", "#FFFFFF", "Insurwave", "https://insurwave.com/",
-                                "Full-time", new Date(2022, 5, 6), true, new Date(), ["Remote Role", "Agile Scrum Development of modern Microservice-based SaaS systems", "Programming with C#, Typescript, React", "CI/CD with Azure DevOps and deployment with Kubernetes"]),
+                                "Full-time", new Date(2022, 5, 6), false, new Date(2023, 0, 1), ["Remote Role", "Agile Scrum Development of modern Microservice-based SaaS systems", "Programming with C#, Typescript, React", "CI/CD with Azure DevOps and deployment with Kubernetes"]),
 
                 new ExperienceItem('#c70d0e', "Software Engineer", "#FFFFFF", "Sinara Consultants", "https://www.sinara.com/",
                                 "Full-time", new Date(2020, 6, 6), false, new Date(2022, 5, 6), ["Effective home working during pandemic", "Effective hybrid working", "Agile Scrum development of internal and external client large-scale systems", "Programming with C#, SignalR, Typescript, VueJS", "Deployment to AWS with kubernetes", "CI/CD with Jenkins"]),
