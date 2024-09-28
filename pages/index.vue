@@ -20,11 +20,20 @@
     <v-row>
       <v-col cols="12" offset-xl="1" xl="10">
         <v-carousel class="elevation-2" height="100%" cycle hide-delimiters :next-icon="icons.right" :prev-icon="icons.left">
+          <project-card title="Jigsaw Platform"
+            imageSrc="/imgs/projects/jigsaw.png"
+            lazySrc="/imgs/projects/jigsaw-lazy.png"
+            link="https://www.jigsawcreate.com/" 
+            duration="August 2024 - Present"
+            description="From corporate structure charts to step plans to timelines, Jigsaw lets you design data rich diagrams with ease to quickly extract meaningful insights from the underlying information."
+            linkText="Learn More"
+          />
+
           <project-card title="Insurwave Platform"
             imageSrc="/imgs/projects/insurwave.png"
             lazySrc="/imgs/projects/insurwave-lazy.png"
             link="https://insurwave.com/" 
-            duration="June 2022 - Present"
+            duration="June 2022 - August 2024"
             description="Insurwave is a software platform that connects insurance buyers, brokers and re/insurers and supports the placement, administration and servicing of specialty insurance contracts."
             linkText="Learn More"
           />

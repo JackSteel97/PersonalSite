@@ -30,7 +30,6 @@ export default Vue.extend({
                 new Skill("React", "#61DAFB"),
                 new Skill("Azure", "#008AD7"),
                 new Skill("Vue.js", "#41B883"),
-                new Skill("Visual Studio", "#8955C5"),
                 new Skill("Problem Solving", "#42daf5"),
                 new Skill(".NET", "#5E22E3"),
                 new Skill("Unit Testing", "#00580C"),

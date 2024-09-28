@@ -21,8 +21,14 @@ export default Vue.extend({
     data: () =>{
         return {
             experienceItems: [
+            new ExperienceItem('#2a0fa5', "Senior Software Engineer", "#FFFFFF", "Jigsaw", "https://www.jigsawcreate.com/",
+                                "Full-time", new Date(2024, 7, 1), true, new Date(), ["Remote Role", "Building the Jigsaw Microsoft Office Add-In", "Initiatives to improve automated testing and CI/CD best practices"]),
+
+            new ExperienceItem('#002F6C', "Principal Software Engineer", "#FFFFFF", "Insurwave", "https://insurwave.com/",
+                                "Full-time", new Date(2024, 7, 1), false, new Date(), ["Remote Role", "Driving team technical direction", "Knowledge sharing and training other engineers across teams", "Leading new technical initiatives to improve developer experience and improve reliability and performance", "Participating in discussions with senior leadership to provide technical perspective and options for long term direction"]),
+
                 new ExperienceItem('#002F6C', "Senior Full Stack Software Engineer", "#FFFFFF", "Insurwave", "https://insurwave.com/",
-                                "Full-time", new Date(2023, 0, 1), true, new Date(), ["Remote Role", "Working on the Core Services Team", "Design and development of modern distributed cloud-based microservice architecture SaaS system", "Programming with C#, Typescript, React", "CI/CD with Azure DevOps and deployment with Kubernetes and Docker"]),
+                                "Full-time", new Date(2023, 0, 1), false, new Date(2024, 2, 3), ["Remote Role", "Working on the Core Services Team", "Design and development of modern distributed cloud-based microservice architecture SaaS system", "Programming with C#, Typescript, React", "CI/CD with Azure DevOps and deployment with Kubernetes and Docker"]),
 
                 new ExperienceItem('#002F6C', "Full Stack Software Engineer", "#FFFFFF", "Insurwave", "https://insurwave.com/",
                                 "Full-time", new Date(2022, 5, 6), false, new Date(2023, 0, 1), ["Remote Role", "Agile Scrum Development of modern Microservice-based SaaS systems", "Programming with C#, Typescript, React", "CI/CD with Azure DevOps and deployment with Kubernetes"]),
